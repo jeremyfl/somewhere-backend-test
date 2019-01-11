@@ -1,6 +1,6 @@
-'use strict'
+"use strict";
 
-const Env = use('Env')
+const Env = use("Env");
 
 module.exports = {
   /*
@@ -14,7 +14,7 @@ module.exports = {
   | For `redis` driver, make sure to install and register `@adonisjs/redis`
   |
   */
-  driver: Env.get('SESSION_DRIVER', 'cookie'),
+  driver: Env.get("SESSION_DRIVER", "cookie"),
 
   /*
   |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ module.exports = {
   | are signed and encrypted.
   |
   */
-  cookieName: 'adonis-session',
+  cookieName: "adonis-session",
 
   /*
   |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ module.exports = {
   |  '2h', '10d', '5y', '2.5 hrs'
   |
   */
-  age: '2h',
+  age: "2h",
 
   /*
   |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ module.exports = {
   */
   cookie: {
     httpOnly: true,
-    path: '/',
+    path: "/",
     sameSite: false
   },
 
@@ -78,7 +78,7 @@ module.exports = {
   |
   */
   file: {
-    location: 'sessions'
+    location: "sessions"
   },
 
   /*
@@ -90,10 +90,10 @@ module.exports = {
   |
   */
   redis: {
-    host: '127.0.0.1',
+    host: "127.0.0.1",
     port: 6379,
     password: null,
     db: 0,
-    keyPrefix: ''
+    keyPrefix: ""
   }
-}
+};
