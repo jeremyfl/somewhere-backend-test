@@ -21,7 +21,7 @@ Route.get("/", () => {
 });
 
 Route.get("search/provinces", "ProvinsiController.search").middleware(["auth"]);
-Route.get("search/cities", "KotaController.search").middleware(["auth"]);
+Route.get("search/cities", "KotaController.search");
 
 Route.post("login", "UserController.login");
 Route.post("register", "UserController.register");
