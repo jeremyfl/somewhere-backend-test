@@ -20,5 +20,8 @@ Route.get("/", () => {
   return { greeting: "Hello" };
 });
 
-Route.get("search/provinces", "ProvinsiController.search");
-Route.get("search/cities", "KotaController.search");
+Route.get("search/provinces", "ProvinsiController.search").middleware(["auth"]);
+Route.get("search/cities", "KotaController.search").middleware(["auth"]);
+
+Route.post("login", "UserController.login");
+Route.post("register", "UserController.register");
