@@ -14,30 +14,12 @@ class KotaController {
       axios.defaults.baseURL = "https://api.rajaongkir.com/starter";
       axios.defaults.headers.common["key"] = "0df6d5bf733214af6c6644eb8717c92c";
 
-      axios
-        .get("city")
-        .then(response => {
-          const results = response.data.rajaongkir.results;
+      let city = await axios.get("city");
+      city = city.data.rajaongkir.results;
 
-          let i = request.input("id");
-
-          return response.send({
-            data: {
-              id: results[i].city_id,
-              province_id: results[i].province_id,
-              province: results[i].province,
-              type: results[i].type,
-              city_name: results[i].city_name,
-              postal_code: results[i].postal_code
-            }
-          });
-        })
-        .catch(function(error) {
-          return response.status(404).send({
-            message: "Sorry, error found",
-            err: error
-          });
-        });
+      return response.send({
+        data: city[request.input("id")]
+      });
     }
 
     const kota = await Kota.find(request.input("id"));
